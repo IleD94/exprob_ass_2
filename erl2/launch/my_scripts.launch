@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="armor" type="execute" name="armor_service" args="it.emarolab.armor.ARMORMainService"/>
+    <node name="ontology_settings" pkg="erl2" type="OntologySettings.py"/>
+    <node name="hints_collection" pkg="erl2" type="hints_collection.py"/>
+    <node name="go_to_point" pkg="erl2" type="go_to_point_action.py"/>
+    <node name="user_interface" pkg="erl2" type="user_interface.py" output="screen"/>
+            
+</launch>
