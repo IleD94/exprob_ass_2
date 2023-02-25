@@ -80,7 +80,7 @@ class DefaultSettings:
                     
 if __name__ == "__main__":
     rospy.init_node('ontology_settings')
-    time.sleep (10)
+    #time.sleep (10)
     settings = DefaultSettings ()
     settings.load_ontology()
     settings.add_item_into_class()

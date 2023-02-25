@@ -66,6 +66,7 @@ add_service_files(
    FILES
    Oracle.srv
    MyHypo.srv
+   Consistency.srv
  )
 
 ## Generate actions in the 'action' folder
@@ -125,8 +126,9 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+
 include_directories(
-include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -145,6 +147,14 @@ include
 ## The recommended prefix ensures that target names across packages don't collide
  add_executable(simulation src/simulation.cpp)
  add_executable(myposes src/pose_trial.cpp)
+ add_executable (initialization src/initialization.cpp)
+ add_executable (leave_home src/leave_home.cpp)
+ add_executable (move_arm src/move_arm.cpp)
+ add_executable (go_to_waypoint src/go_to_waypoint.cpp)
+ add_executable (check_hypothesis src/check_hypothesis.cpp)
+ add_executable (go_home src/go_home.cpp)
+ add_executable (oracle src/oracle.cpp)
+
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -156,16 +166,51 @@ include
 ## same as for the library above
 add_dependencies(simulation ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(myposes ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(initialization ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(leave_home ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(move_arm ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(go_to_waypoint ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(check_hypothesis ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(go_home ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(oracle ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(simulation
   ${catkin_LIBRARIES}
 )
 
- #########################################################AGGIUNGERE LIBRERIA DI MOVE-IT
 target_link_libraries(myposes
   ${catkin_LIBRARIES}
 )
+target_link_libraries(initialization
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(leave_home
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(move_arm
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(go_to_waypoint
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(check_hypothesis
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(go_home
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(oracle
+  ${catkin_LIBRARIES}
+)
+
+
 #############
 ## Install ##
 #############

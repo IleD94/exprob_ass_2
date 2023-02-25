@@ -5,18 +5,20 @@ from armor_msgs.msg import *
 from armor_msgs.srv import *
 from armor_api.armor_client import ArmorClient
 from erl2.srv import MyHypo, MyHypoResponse
+from erl2.srv import Consistency, ConsistencyResponse
 from erl2.msg import ErlOracle
 import time
 from std_msgs.msg import String
 
-pub = rospy.Publisher("check_hypotesis", Bool, queue_size=0)
+#pub = rospy.Publisher("check_hypotesis", Bool, queue_size=1)
 acquired = False
 
 client = ArmorClient("cluedo", "ontology")
 #HP = None
 ID = None
 ID_list= []
-
+check = False
+go = False
 def user_interface(msg):
 
     pub = rospy.Publisher('cluedo_ui', String, queue_size=10) 
@@ -100,7 +102,7 @@ def ontology_query (HP):
     if (complete_str.find (str(HP)) != -1):
         if (inconsistent_str.find (HP) == -1):
             user_interface ('The ' + HP + 'is CONSISTENT')
-            ID_list.append(ID)
+            #ID_list.append(ID)
             return True
         else:
             user_interface ('The ' + HP + ' is INCONSISTENT')
@@ -138,60 +140,75 @@ def accusation_maker (req):
     res.who = who
     res.what = what
     res.where = where
+    user_interface ("ENTRO NEL MAKER!!!!")
+    return res
+
+def check_hypo (req):
+    global check
+    res = ConsistencyResponse()
+    res.success = check
+    return res
+    
+def check_callback (data):
+    global go
+    go = True
 
 def main ():
-    global myhypo_pub, acquired
+    global myhypo_pub, acquired, HP, check
     # Inizializza il nodo "publisher_py"
     rospy.init_node('hints_collection', anonymous = True)
     hint_sub = rospy.Subscriber('/oracle_hint', ErlOracle, hint_callback)
-    pub = rospy.Publisher("check_hypotesis", Bool, queue_size=1)
-    #win_hypo_srv = rospy.Service('winhypo', WinHypo, winhypo_handle)
+    service_consistency = rospy.Service("check_hypotesis", Consistency, check_hypo)
     myhypo_srv = rospy.Service('accusation', MyHypo, accusation_maker)
+    check_sub = rospy.Subscriber("check", Bool, check_callback)
     rate = rospy.Rate(1)
     # Codice del publisher
     while not rospy.is_shutdown():
-        # if a new hint has been collected
-        if acquired == True:
-            # if the hint is a malformed hint the robot will recognise and discard it
-            if key == '' or key == 'when' or value == '' or value == '-1':
-                user_interface('Malformed hint, the robot will discard this') #mettere una user interface, come nel primo assignment
-            # instead if the hint is not a malformed one
-            else:
-                user_interface('Hint collected: {}, {}, {}'.format(ID, key, value))   
-                # uploading the hint in the ontology
-                HP = add_hypothesis (ID, value, key)
-                # check if completed hypotheses have been loaded in the ontology 
-                query_res=ontology_query (HP)
-                time.sleep(1)
-                if query_res:
-                    if ID in ID_list:
-                        msg_consistency = Bool()
-                        msg_consistency.data = False
-                        pub.publish (msg_consistency)
-                    else:
-                        msg_consistency = Bool()
-                        msg_consistency.data = True
-                        pub.publish (msg_consistency)
-
+        #if go:
+		# if a new hint has been collected
+            if acquired == True:
+                # if the hint is a malformed hint the robot will recognise and discard it
+                if key == '' or key == 'when' or value == '' or value == '-1':
+                    
+                    user_interface('Malformed hint, the robot will discard this') #mettere una user interface, come nel primo assignment
+                # instead if the hint is not a malformed one
                 else:
-                    msg_consistency = Bool()
-                    msg_consistency.data = False
-                    pub.publish (msg_consistency)
+                    #check = False;
+                    user_interface('Hint collected: {}, {}, {}'.format(ID, key, value))   
+                    # uploading the hint in the ontology
+                    HP = add_hypothesis (ID, value, key)
+                    # check if completed hypotheses have been loaded in the ontology 
+                    query_res=ontology_query(HP)
+                    time.sleep (1)
+                    if query_res:
+                        user_interface ('CI SONOOOOOOOOOOOOOOOOOOO')
+                        if ID in ID_list:
+                            check = False
+                        else:
+                            check = True
+                            ID_list.append(ID)
+                            time.sleep (15)
+                            #rate.sleep ()
 
-                    # if there is only one element in the COMPLETED class
+                    else:
+                            check = False
 
-            rospy.sleep(5)
-            acquired = False
-            rate.sleep()
-        
-        # if there are not new hint collected    
-        elif acquired == False:
-            # the complete variable is set to false
-            msg_consistency = Bool()
-            msg_consistency.data = False
-            pub.publish (msg_consistency)
-            rate.sleep()
-    
+
+                        # if there is only one element in the COMPLETED class
+
+                rospy.sleep(10)
+                acquired = False
+                rate.sleep()
+
+            # if there are not new hint collected    
+            else:
+                # the complete variable is set to false
+                #check = False
+                user_interface ('Sono qui')
+                rate.sleep()
+        # else:
+        #     rate.sleep()  
+
 
 
 if __name__ == '__main__':
