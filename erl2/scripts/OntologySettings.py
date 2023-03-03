@@ -64,27 +64,15 @@ class DefaultSettings:
          """
          client.utils.apply_buffered_changes()
          time.sleep (3)
-         client.utils.sync_buffered_reasoner()
-         #for x in suspects:
-          #  if client.query.check_ind_exists(x):
-            #   print ("Item", x,"is present")
-         #for x in weapons:
-          #  if client.query.check_ind_exists(x):
-             #  print ("Item", x,"is present")
-         #for x in rooms:
-            #if client.query.check_ind_exists(x):
-          #     print ("Item", x,"is present")
-        
-     
+         client.utils.sync_buffered_reasoner()     
                     
                     
 if __name__ == "__main__":
     rospy.init_node('ontology_settings')
-    #time.sleep (10)
     settings = DefaultSettings ()
     settings.load_ontology()
     settings.add_item_into_class()
     settings.changes_and_apply()        
-     
+    #time.sleep (10)
     while not rospy.is_shutdown():  
        rospy.spin()

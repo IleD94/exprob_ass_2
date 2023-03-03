@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """ 
-@package cluedo user interface
+@package cluedo, user interface node.
 This node displays to the user
 some messages from the game
 """

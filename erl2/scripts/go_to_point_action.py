@@ -1,5 +1,10 @@
 #! /usr/bin/env python
 
+""" 
+@package cluedo, go_to_point_action.
+This node handles every move from a place to another: waypoint and home.
+"""
+
 import rospy
 from geometry_msgs.msg import Twist, Point, Pose
 from nav_msgs.msg import Odometry

@@ -39,7 +39,15 @@
 #define PI 3.14159
 
 namespace KCL_rosplan {
-
+/**
+* \brief Callback of the leave_home action
+* \param msg: message from the plan_dispatcher
+* \return true
+*
+* This function implements the beahvior of the robot when the action leave_home is executed. This action 
+* is performed when the robot is at home and have to move to one of the waypoints, after initialization or
+after checking a wrong hypothesis
+*/ 
 	LeaveHomeInterface::LeaveHomeInterface(ros::NodeHandle &nh) {
 			// here the initialization
 	}
@@ -80,6 +88,15 @@ namespace KCL_rosplan {
 		return true;
 	}
 }
+
+/**
+* \brief Main function of the leave_home action. 
+* \param None
+* \return 0
+*
+* This is the main function of the leave_home action, where the node is initialized. Moreover there is the 
+* LeaveHomeInterface to execute the real action as an action of the rosplan.
+*/
 
 	int main(int argc, char **argv) {
 		ros::init(argc, argv, "leave_home_action", ros::init_options::AnonymousName);

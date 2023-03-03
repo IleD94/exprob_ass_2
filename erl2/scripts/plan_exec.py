@@ -30,10 +30,9 @@
 #     None
 #
 # Description: <BR>
-#     In this node all the services of the rosplan are called in order to execute the current plan generated
-#     automatically, thanks to those services, from the domain and the problem files provided. Since all those
-#     services are called within a loop, everytime that the plan_dispatcher service returns that the plan has
-#     failed, the replanning is automatically started. 
+#     In this node all rosplan services are called in order to execute the current plan, generated
+#     automatically by rosplan services and poptf planner from the domain and the problem files provided. 
+#     Services are called in loop, for every fail of the previous plan there is an automatic replanning. 
 
 import rospy
 import time
@@ -58,7 +57,7 @@ rosplan_goal = False
 # \return: None
 #
 # This is the main function of the node, where the node is initialized and all the rosplan services are called.
-# In case of the fail of the plan, the replanning is automatically started.
+# Here replanning is called after a fail.
 
 def main():
 
@@ -80,9 +79,7 @@ def main():
     rospy.wait_for_service('/rosplan_plan_dispatcher/dispatch_plan')
     plan_dispatcher = rospy.ServiceProxy('/rosplan_plan_dispatcher/dispatch_plan', DispatchService)
     
-    # armor client
-    #rospy.wait_for_service('armor_interface_srv')
-    
+    #call of the class ArmorClient from armor_api
     client = ArmorClient("cluedo", "ontology")
 
     print("Start planning")
@@ -92,13 +89,16 @@ def main():
     
     while (rosplan_success == False or rosplan_goal == False):
         
-        # print('Problem interface service')
-        problem_interface()        
-        # print('Planning interface service')
+        print('Problem interface service')
+        problem_interface()
+
+        print('Planning interface service')
         planning_interface()
-        # print('Parsing interface service')
+
+        print('Parsing interface service')
         parsing_interface()
-        # print('Plan dispatcher')
+
+        print('Plan dispatcher')
         feedback = plan_dispatcher()
         print(feedback)
         
@@ -107,12 +107,12 @@ def main():
         
         print('Replanning')
     
-    ##
-# \brief It saves the changes on a new ontology file.
+##
+# \brief It saves the changes on a new ontology file, calling the armor api save_ref_with_inferences of the armor client.
 # \param: None
 # \return: None
 #
-# This functions saves the ontology in a new file, also saving the inferences.
+# Here we save the new inferred ontology on the Desktop folder.
 
     client.utils.save_ref_with_inferences("/root/Desktop/inferred_cluedo.owl")
     print('The plan has finished!')

@@ -37,9 +37,17 @@
 #include <erl2/PlanningAction.h>
 
 #define PI 3.14159
-/////////////////////////////prendere i pacchetti in action e cambiare il nome delle cartelle qui
-namespace KCL_rosplan {
 
+namespace KCL_rosplan {
+/**
+* \brief Callback of the go_to_waypoint action
+* \param msg: message from the plan_dispatcher
+* \return true
+*
+* This function implements the beahvior of the robot when the action go_to_waypoint is executed. This action 
+* is performed at every waypoint after the check_hypothesis action if the destination is from a waypotint to
+* another. 
+*/     
 	GoToWayPointInterface::GoToWayPointInterface(ros::NodeHandle &nh) {
 			// here the initialization
 	}
@@ -81,6 +89,14 @@ namespace KCL_rosplan {
 		return true;
 	}
 }
+/**
+* \brief Main function of the go_to_waypoint action. 
+* \param None
+* \return 0
+*
+* This is the main function of the go_to_waypoint action, where the node is initialized. Moreover there is the 
+* GoToWayPointInterface to execute the real action as an action of the rosplan.
+*/
 
 	int main(int argc, char **argv) {
 		ros::init(argc, argv, "go_to_waypoint_action", ros::init_options::AnonymousName);

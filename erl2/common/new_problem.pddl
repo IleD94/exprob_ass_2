@@ -6,8 +6,8 @@
     detectivebot - robot
 )
 (:init
+    (robot_wp wp1)
 
-    (robot_home myhome)
 
 
 

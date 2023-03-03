@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+
+""" 
+@package cluedo, hints_collection.
+This node, 'hints_collection', collects and checks all the hints received.
+"""
+
 import rospy
 from std_msgs.msg import Bool
 from armor_msgs.msg import *
@@ -10,17 +16,21 @@ from erl2.msg import ErlOracle
 import time
 from std_msgs.msg import String
 
-#pub = rospy.Publisher("check_hypotesis", Bool, queue_size=1)
 acquired = False
 
 client = ArmorClient("cluedo", "ontology")
-#HP = None
 ID = None
 ID_list= []
 check = False
 go = False
-def user_interface(msg):
 
+
+def user_interface(msg):
+    """
+    /brief this function calls the publisher of the topic 'cluedo_ui', of type String and publishes it.
+    @param msg: String
+    @return None
+    """
     pub = rospy.Publisher('cluedo_ui', String, queue_size=10) 
     time.sleep(1)
     try:
@@ -74,8 +84,7 @@ def add_hypothesis (ID, item, key):
     @param ID: uint32 with the number of the source
     @param item: the hint to add in the cluedo ontology as where, who or what instance 
     """
-    global HP #forse va tolto
-    
+    global HP 
     HP = "HP"+str(ID)
     #myID = rospy.get_param (HP) #CONSISTENT
     client.manipulation.add_ind_to_class(HP, "HYPOTHESIS")
@@ -87,6 +96,16 @@ def add_hypothesis (ID, item, key):
 
 
 def hint_callback(msg):
+    """
+    /brief this is the callback of the subscriber to the /oracle_hint topic. The message is a
+    custom message ErlOracle. 
+    @param: msg
+    @return: None
+    
+    This is a callback of the suscriber hint_sub. Here we collect and store as global variable
+    the hint, in the form of id, key and value. Here we put as true also the flag acquired, that
+    is used to know if the hint has been acquired.
+    """
     global ID, key, value, acquired
     ID = msg.ID
     key = msg.key
@@ -94,6 +113,16 @@ def hint_callback(msg):
     acquired = True 
 
 def ontology_query (HP):
+    """
+    /brief this is the function to check, asking to the armor service, if the hypothesis is 
+    consistent, inconsistent or incomplete.
+    @param: HP
+    @return: bool
+    
+    This function asks to armor service about the consistency of every hypothesis and 
+    sends to the user interface the result of the query as a string, then it returns a 
+    boolean value, true if it is consistent, false in every other case.
+    """
     inconsistent_list = client.query.ind_b2_class("INCONSISTENT")
     complete_list = client.query.ind_b2_class("COMPLETED")
     inconsistent_str = str(inconsistent_list)
@@ -101,30 +130,46 @@ def ontology_query (HP):
     print(HP)
     if (complete_str.find (str(HP)) != -1):
         if (inconsistent_str.find (HP) == -1):
-            user_interface ('The ' + HP + 'is CONSISTENT')
-            #ID_list.append(ID)
+            user_interface ('The ' + HP + ' is CONSISTENT')
             return True
         else:
             user_interface ('The ' + HP + ' is INCONSISTENT')
             time.sleep(1)
-            # msg_consistency = Bool()
-            # msg_consistency.data = False
-            # pub.publish (msg_consistency)
             return False
     else:
             user_interface ('The ' + HP + ' is INCOMPLETE')
-            # msg_consistency = Bool()
-            # msg_consistency.data = False
-            # pub.publish (msg_consistency)
             return False
 
 def from_url_to_my_item (url):
+    """
+    /brief this a function to transform the result of the armor service, that is a url,
+    to a string, with only the individual of the class. 
+    @param: url, the url from the ontology
+    @return: my_item, the individual from the ontology as string
+    
+    This function replace url, parenthesis and major symbol with empty space, In rder to have
+    as a string only the individual of the class.
+    """
     my_string = str (url)
     my_string = my_string.replace ('<http://www.emarolab.it/cluedo-ontology#', '')
     my_item = my_string.replace ('>', '')
+    my_item = my_item.replace ('[', '')
+    my_item = my_item.replace (']', '')
     return my_item
 
 def accusation_maker (req):
+    """
+    /brief this is the function of the service 'accusation', of type MyHypo. In order to take
+    the hint, in the form of: who, where, what, of the hypothesis that we want to check to the 
+    oracle.
+    @param: req, type none 
+    @return: res, type: ID (int32), who (string), what, (string), where (string)
+    
+    This function call the function make_ind_of_class_disjoint, to make every individual of classes
+    PERSON, WEAPON, PLACE disjointed. Then it calls the armor api, query.objectprop_b2_ind, to
+    get who, what and where of a specific hypothes and it calls the function from_url_to_my_item
+    to get from the armor_service only the individual of the class.
+    """
     make_ind_of_class_disjoint ('PERSON')
     make_ind_of_class_disjoint ('WEAPON')
     make_ind_of_class_disjoint ('PLACE')
@@ -140,40 +185,47 @@ def accusation_maker (req):
     res.who = who
     res.what = what
     res.where = where
-    user_interface ("ENTRO NEL MAKER!!!!")
     return res
 
 def check_hypo (req):
+    """
+    /brief this is the function of the service "check_hypotesis", of type Consistency. In order to
+    check consistency and completeness.
+    @param: req, type none 
+    @return: res, type: success (Bool) 
+
+    Here the boolean of return is stored in the check global variable.
+    """
     global check
     res = ConsistencyResponse()
     res.success = check
     return res
-    
-def check_callback (data):
-    global go
-    go = True
+
 
 def main ():
-    global myhypo_pub, acquired, HP, check
-    # Inizializza il nodo "publisher_py"
+    """
+    /brief this is the main function. Here we declare every service and subscriber used and it checks
+    if the hint is malformed, so it needs to be discarded or if it can be collected. Once collected the hint
+    it controlled if the hypothesis is consistent, using the proper functions. Here is used a user_interface to
+    show on the screen the result of the quest.
+
+    @param: None
+    @return: None    
+    """
+    global acquired, HP, check
     rospy.init_node('hints_collection', anonymous = True)
     hint_sub = rospy.Subscriber('/oracle_hint', ErlOracle, hint_callback)
     service_consistency = rospy.Service("check_hypotesis", Consistency, check_hypo)
     myhypo_srv = rospy.Service('accusation', MyHypo, accusation_maker)
-    check_sub = rospy.Subscriber("check", Bool, check_callback)
     rate = rospy.Rate(1)
-    # Codice del publisher
     while not rospy.is_shutdown():
-        #if go:
-		# if a new hint has been collected
             if acquired == True:
                 # if the hint is a malformed hint the robot will recognise and discard it
                 if key == '' or key == 'when' or value == '' or value == '-1':
                     
-                    user_interface('Malformed hint, the robot will discard this') #mettere una user interface, come nel primo assignment
+                    user_interface('Malformed hint, the robot will discard this') 
                 # instead if the hint is not a malformed one
                 else:
-                    #check = False;
                     user_interface('Hint collected: {}, {}, {}'.format(ID, key, value))   
                     # uploading the hint in the ontology
                     HP = add_hypothesis (ID, value, key)
@@ -181,20 +233,15 @@ def main ():
                     query_res=ontology_query(HP)
                     time.sleep (1)
                     if query_res:
-                        user_interface ('CI SONOOOOOOOOOOOOOOOOOOO')
                         if ID in ID_list:
                             check = False
                         else:
                             check = True
                             ID_list.append(ID)
-                            time.sleep (15)
-                            #rate.sleep ()
+                            time.sleep (10)
 
                     else:
                             check = False
-
-
-                        # if there is only one element in the COMPLETED class
 
                 rospy.sleep(10)
                 acquired = False
@@ -202,14 +249,8 @@ def main ():
 
             # if there are not new hint collected    
             else:
-                # the complete variable is set to false
-                #check = False
-                user_interface ('Sono qui')
+                check = False
                 rate.sleep()
-        # else:
-        #     rate.sleep()  
-
-
 
 if __name__ == '__main__':
     main ()

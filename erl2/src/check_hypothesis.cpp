@@ -10,7 +10,7 @@
 * \details
 *
 * Subscribes to: <BR>
-*  check_hypotesis
+*     None
 *
 * Publishes to: <BR>
 *     None
@@ -19,13 +19,13 @@
 *     None
 *
 * Client Services: <BR>
-*     
+*  check_hypotesis
 *
 * Action Client: <BR>
 *     None
 *
 * Description: <BR>
-* In this node is implemented the check_hypothessi action of the rosplan.
+* In this node is implemented the check_hypothesis action of the rosplan.
 * This node allows to know if a new hypothesis has been found, and this is perfomed
 * thanks to the check hypothesis message that advertise this node. If a new consistent hypothesis has
 * been found, then the plan can proceed, if instead there is no new complete hypothesis then
@@ -63,16 +63,8 @@ namespace KCL_rosplan {
         ros::NodeHandle n;
         ros::ServiceClient check_hypothesis_client = n.serviceClient <erl2::Consistency>("check_hypotesis");  
         erl2::Consistency srv;
-        // ros::NodeHandle nh;  
-        // ros::Publisher pub = nh.advertise<std_msgs::Bool>("check", 1);
-        // std_msgs::Bool mymsg;
-        // mymsg.data = true;
-        
-        // pub.publish(mymsg);
-        
+
         check_hypothesis_client.call (srv);
-        
-        
         
         if (srv.response.success == true) {
         
@@ -88,12 +80,12 @@ namespace KCL_rosplan {
 
 
 /**
-* \brief Main function of the check_complete action. 
+* \brief Main function of the check_hypothesis action. 
 * \param None
 * \return 0
 *
-* This is the main function of the check_complete action, where the node is initialized. Moreover there is the 
-* CheckCompleteInterface to execute the real action as an action of the rosplan.
+* This is the main function of the check_hypothesis action, where the node is initialized. Moreover there is the 
+* CheckHypothesisInterface to execute the real action as an action of the rosplan.
 */
     int main(int argc, char **argv) {
         ros::init(argc, argv, "check_hypothesis_action", ros::init_options::AnonymousName);
