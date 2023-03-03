@@ -131,6 +131,8 @@ def ontology_query (HP):
     if (complete_str.find (str(HP)) != -1):
         if (inconsistent_str.find (HP) == -1):
             user_interface ('The ' + HP + ' is CONSISTENT')
+            if ID in ID_list:
+                user_interface ("But we've already checked and it is not the winning one")
             return True
         else:
             user_interface ('The ' + HP + ' is INCONSISTENT')
