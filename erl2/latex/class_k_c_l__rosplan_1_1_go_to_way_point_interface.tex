@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_go_to_way_point_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Go\+To\+Way\+Point\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_go_to_way_point_interface}\index{KCL\_rosplan::GoToWayPointInterface@{KCL\_rosplan::GoToWayPointInterface}}
+
+
+{\ttfamily \#include $<$go\+\_\+to\+\_\+waypoint.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Go\+To\+Way\+Point\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_k_c_l__rosplan_1_1_go_to_way_point_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Go\+To\+Way\+Point\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_k_c_l__rosplan_1_1_go_to_way_point_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_go_to_way_point_interface_a4b392adcfdc61e4893a2f87d2bc6bc2a}{Go\+To\+Way\+Point\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\begin{DoxyCompactList}\small\item\em Callback of the go\+\_\+to\+\_\+waypoint action. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_go_to_way_point_interface_a3614b5c53bba4f1d59d1f27e59f63742}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file go\+\_\+to\+\_\+waypoint.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_go_to_way_point_interface_a4b392adcfdc61e4893a2f87d2bc6bc2a}\label{class_k_c_l__rosplan_1_1_go_to_way_point_interface_a4b392adcfdc61e4893a2f87d2bc6bc2a}} 
+\index{KCL\_rosplan::GoToWayPointInterface@{KCL\_rosplan::GoToWayPointInterface}!GoToWayPointInterface@{GoToWayPointInterface}}
+\index{GoToWayPointInterface@{GoToWayPointInterface}!KCL\_rosplan::GoToWayPointInterface@{KCL\_rosplan::GoToWayPointInterface}}
+\doxysubsubsection{\texorpdfstring{GoToWayPointInterface()}{GoToWayPointInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Go\+To\+Way\+Point\+Interface\+::\+Go\+To\+Way\+Point\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Callback of the go\+\_\+to\+\_\+waypoint action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action go\+\_\+to\+\_\+waypoint is executed. This action is performed at every waypoint after the check\+\_\+hypothesis action if the destination is from a waypotint to another. 
+
+Definition at line 51 of file go\+\_\+to\+\_\+waypoint.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_go_to_way_point_interface_a3614b5c53bba4f1d59d1f27e59f63742}\label{class_k_c_l__rosplan_1_1_go_to_way_point_interface_a3614b5c53bba4f1d59d1f27e59f63742}} 
+\index{KCL\_rosplan::GoToWayPointInterface@{KCL\_rosplan::GoToWayPointInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::GoToWayPointInterface@{KCL\_rosplan::GoToWayPointInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Go\+To\+Way\+Point\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file go\+\_\+to\+\_\+waypoint.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{go__to__waypoint_8h}{go\+\_\+to\+\_\+waypoint.\+h}}\item 
+src/\mbox{\hyperlink{go__to__waypoint_8cpp}{go\+\_\+to\+\_\+waypoint.\+cpp}}\end{DoxyCompactItemize}

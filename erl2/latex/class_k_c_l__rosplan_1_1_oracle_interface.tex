@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_oracle_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Oracle\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_oracle_interface}\index{KCL\_rosplan::OracleInterface@{KCL\_rosplan::OracleInterface}}
+
+
+{\ttfamily \#include $<$oracle.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Oracle\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_k_c_l__rosplan_1_1_oracle_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Oracle\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_k_c_l__rosplan_1_1_oracle_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_oracle_interface_a211e4f41a85f9db205937930ca7898ad}{Oracle\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_oracle_interface_a50ab926587fcf7a4c79c1742716f4bd0}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback of the oracle action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file oracle.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_oracle_interface_a211e4f41a85f9db205937930ca7898ad}\label{class_k_c_l__rosplan_1_1_oracle_interface_a211e4f41a85f9db205937930ca7898ad}} 
+\index{KCL\_rosplan::OracleInterface@{KCL\_rosplan::OracleInterface}!OracleInterface@{OracleInterface}}
+\index{OracleInterface@{OracleInterface}!KCL\_rosplan::OracleInterface@{KCL\_rosplan::OracleInterface}}
+\doxysubsubsection{\texorpdfstring{OracleInterface()}{OracleInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Oracle\+Interface\+::\+Oracle\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file oracle.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_oracle_interface_a50ab926587fcf7a4c79c1742716f4bd0}\label{class_k_c_l__rosplan_1_1_oracle_interface_a50ab926587fcf7a4c79c1742716f4bd0}} 
+\index{KCL\_rosplan::OracleInterface@{KCL\_rosplan::OracleInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::OracleInterface@{KCL\_rosplan::OracleInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Oracle\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback of the oracle action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action oracle is executed. This action allows the robot its own complete and consistent hypothesis just collected is the correct one or the wrong one. To do that we have a client to the oracle solution service that contains the ID of the winning hypothesis, the client to the winhypo service which contains the ID, who, the what and the where associated to the current hypothesis. If the two I\+Ds matches, then the plan is completed since the game is finished. If not a replanning is needed. At the end we publish a message to the topic \char`\"{}cluedo\+\_\+ui\char`\"{}, in order to display the solution on the screen. 
+
+Definition at line 64 of file oracle.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{oracle_8h}{oracle.\+h}}\item 
+src/\mbox{\hyperlink{oracle_8cpp}{oracle.\+cpp}}\end{DoxyCompactItemize}

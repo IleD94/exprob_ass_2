@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_go_home_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Go\+Home\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_go_home_interface}\index{KCL\_rosplan::GoHomeInterface@{KCL\_rosplan::GoHomeInterface}}
+
+
+{\ttfamily \#include $<$go\+\_\+home.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Go\+Home\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{class_k_c_l__rosplan_1_1_go_home_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Go\+Home\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{class_k_c_l__rosplan_1_1_go_home_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_go_home_interface_a39d206fa1d82399861bcb58b7d7981d2}{Go\+Home\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_go_home_interface_aba91c13b5b91ade6763fe54a0d042359}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback of the go\+\_\+home action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file go\+\_\+home.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_go_home_interface_a39d206fa1d82399861bcb58b7d7981d2}\label{class_k_c_l__rosplan_1_1_go_home_interface_a39d206fa1d82399861bcb58b7d7981d2}} 
+\index{KCL\_rosplan::GoHomeInterface@{KCL\_rosplan::GoHomeInterface}!GoHomeInterface@{GoHomeInterface}}
+\index{GoHomeInterface@{GoHomeInterface}!KCL\_rosplan::GoHomeInterface@{KCL\_rosplan::GoHomeInterface}}
+\doxysubsubsection{\texorpdfstring{GoHomeInterface()}{GoHomeInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Go\+Home\+Interface\+::\+Go\+Home\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file go\+\_\+home.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_go_home_interface_aba91c13b5b91ade6763fe54a0d042359}\label{class_k_c_l__rosplan_1_1_go_home_interface_aba91c13b5b91ade6763fe54a0d042359}} 
+\index{KCL\_rosplan::GoHomeInterface@{KCL\_rosplan::GoHomeInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::GoHomeInterface@{KCL\_rosplan::GoHomeInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Go\+Home\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback of the go\+\_\+home action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action go\+\_\+home is executed. This action is performed at every waypoint after the check\+\_\+hypothesis action. To come back home to check if the hypothesis is the right one. 
+
+Definition at line 56 of file go\+\_\+home.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{go__home_8h}{go\+\_\+home.\+h}}\item 
+src/\mbox{\hyperlink{go__home_8cpp}{go\+\_\+home.\+cpp}}\end{DoxyCompactItemize}

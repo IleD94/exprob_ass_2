@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_initialization_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Initialization\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_initialization_interface}\index{KCL\_rosplan::InitializationInterface@{KCL\_rosplan::InitializationInterface}}
+
+
+{\ttfamily \#include $<$initialization.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Initialization\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{class_k_c_l__rosplan_1_1_initialization_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Initialization\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{class_k_c_l__rosplan_1_1_initialization_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_initialization_interface_a1bd2e14708f84681241702d924a3b488}{Initialization\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_initialization_interface_a70c6ee98d881956d8a98c888f3b623ef}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback of the initialization action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file initialization.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_initialization_interface_a1bd2e14708f84681241702d924a3b488}\label{class_k_c_l__rosplan_1_1_initialization_interface_a1bd2e14708f84681241702d924a3b488}} 
+\index{KCL\_rosplan::InitializationInterface@{KCL\_rosplan::InitializationInterface}!InitializationInterface@{InitializationInterface}}
+\index{InitializationInterface@{InitializationInterface}!KCL\_rosplan::InitializationInterface@{KCL\_rosplan::InitializationInterface}}
+\doxysubsubsection{\texorpdfstring{InitializationInterface()}{InitializationInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Initialization\+Interface\+::\+Initialization\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file initialization.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_initialization_interface_a70c6ee98d881956d8a98c888f3b623ef}\label{class_k_c_l__rosplan_1_1_initialization_interface_a70c6ee98d881956d8a98c888f3b623ef}} 
+\index{KCL\_rosplan::InitializationInterface@{KCL\_rosplan::InitializationInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::InitializationInterface@{KCL\_rosplan::InitializationInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Initialization\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback of the initialization action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action initialization is executed. In particular this action is only execute once at the beginning of the simulation, with the purpose of store in the parameter server the z position of the hint spheres in the environment. 
+
+Definition at line 103 of file initialization.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{initialization_8h}{initialization.\+h}}\item 
+src/\mbox{\hyperlink{initialization_8cpp}{initialization.\+cpp}}\end{DoxyCompactItemize}

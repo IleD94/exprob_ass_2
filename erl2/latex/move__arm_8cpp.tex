@@ -1,0 +1,139 @@
+\hypertarget{move__arm_8cpp}{}\doxysection{src/move\+\_\+arm.cpp File Reference}
+\label{move__arm_8cpp}\index{src/move\_arm.cpp@{src/move\_arm.cpp}}
+
+
+this node implements the move\+\_\+arm action.  
+
+
+{\ttfamily \#include \char`\"{}erl2/move\+\_\+arm.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/move\+\_\+group\+\_\+interface/move\+\_\+group\+\_\+interface.\+h$>$}\newline
+Include dependency graph for move\+\_\+arm.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{move__arm_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceerl2}{erl2}}
+\item 
+ \mbox{\hyperlink{namespace_k_c_l__rosplan}{K\+C\+L\+\_\+rosplan}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{move__arm_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function of the move\+\_\+arm action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{move__arm_8cpp_a060c500989c875ae4b498657e0561fd5}{z\+\_\+wp0}} = 0.\+0
+\item 
+double \mbox{\hyperlink{move__arm_8cpp_a724b974d6c92b67a14c8cb59c33b0823}{z\+\_\+wp1}} = 0.\+0
+\item 
+double \mbox{\hyperlink{move__arm_8cpp_a62bcc88afa8b94fafade157b6a0fe9c7}{z\+\_\+wp2}} = 0.\+0
+\item 
+double \mbox{\hyperlink{move__arm_8cpp_a548b0bb699f1b3c307c8ea7057d5068c}{z\+\_\+wp3}} = 0.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this node implements the move\+\_\+arm action. 
+
+\begin{DoxyAuthor}{Author}
+Ilenia D\textquotesingle{}Angelo 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\+02.\+2023
+\end{DoxyDate}
+Subscribes to\+: ~\newline
+ None
+
+Publishes to\+: ~\newline
+ None
+
+Serivces\+: ~\newline
+ None
+
+Client Services\+: ~\newline
+ None
+
+Action Client\+: ~\newline
+ None
+
+Description\+: ~\newline
+ In this node is implemented the move\+\_\+arm action of the rosplan. This node makes the arm of the robot robot move in a high or a low pose, depending on the value retrieved by the parameter server, that way previously set in the initialization action. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{move__arm_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{move__arm_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{move\_arm.cpp@{move\_arm.cpp}!main@{main}}
+\index{main@{main}!move\_arm.cpp@{move\_arm.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main function of the move\+\_\+arm action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0
+\end{DoxyReturn}
+This is the main function of the move\+\_\+arm action, where the node is initialized. Moreover there is the Move\+Arm\+Interface to execute the real action as an action of the rosplan. 
+
+Definition at line 162 of file move\+\_\+arm.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{move__arm_8cpp_a060c500989c875ae4b498657e0561fd5}\label{move__arm_8cpp_a060c500989c875ae4b498657e0561fd5}} 
+\index{move\_arm.cpp@{move\_arm.cpp}!z\_wp0@{z\_wp0}}
+\index{z\_wp0@{z\_wp0}!move\_arm.cpp@{move\_arm.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp0}{z\_wp0}}
+{\footnotesize\ttfamily double z\+\_\+wp0 = 0.\+0}
+
+
+
+Definition at line 38 of file move\+\_\+arm.\+cpp.
+
+\mbox{\Hypertarget{move__arm_8cpp_a724b974d6c92b67a14c8cb59c33b0823}\label{move__arm_8cpp_a724b974d6c92b67a14c8cb59c33b0823}} 
+\index{move\_arm.cpp@{move\_arm.cpp}!z\_wp1@{z\_wp1}}
+\index{z\_wp1@{z\_wp1}!move\_arm.cpp@{move\_arm.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp1}{z\_wp1}}
+{\footnotesize\ttfamily double z\+\_\+wp1 = 0.\+0}
+
+
+
+Definition at line 39 of file move\+\_\+arm.\+cpp.
+
+\mbox{\Hypertarget{move__arm_8cpp_a62bcc88afa8b94fafade157b6a0fe9c7}\label{move__arm_8cpp_a62bcc88afa8b94fafade157b6a0fe9c7}} 
+\index{move\_arm.cpp@{move\_arm.cpp}!z\_wp2@{z\_wp2}}
+\index{z\_wp2@{z\_wp2}!move\_arm.cpp@{move\_arm.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp2}{z\_wp2}}
+{\footnotesize\ttfamily double z\+\_\+wp2 = 0.\+0}
+
+
+
+Definition at line 40 of file move\+\_\+arm.\+cpp.
+
+\mbox{\Hypertarget{move__arm_8cpp_a548b0bb699f1b3c307c8ea7057d5068c}\label{move__arm_8cpp_a548b0bb699f1b3c307c8ea7057d5068c}} 
+\index{move\_arm.cpp@{move\_arm.cpp}!z\_wp3@{z\_wp3}}
+\index{z\_wp3@{z\_wp3}!move\_arm.cpp@{move\_arm.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp3}{z\_wp3}}
+{\footnotesize\ttfamily double z\+\_\+wp3 = 0.\+0}
+
+
+
+Definition at line 41 of file move\+\_\+arm.\+cpp.
+

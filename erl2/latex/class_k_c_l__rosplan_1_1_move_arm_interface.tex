@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_move_arm_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Move\+Arm\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_move_arm_interface}\index{KCL\_rosplan::MoveArmInterface@{KCL\_rosplan::MoveArmInterface}}
+
+
+{\ttfamily \#include $<$move\+\_\+arm.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Move\+Arm\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_k_c_l__rosplan_1_1_move_arm_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Move\+Arm\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_k_c_l__rosplan_1_1_move_arm_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_move_arm_interface_a711e6a8e313a09fa60642aa6154db968}{Move\+Arm\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_move_arm_interface_abe22a23d2aef43425ef3828fa982d6ef}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback of the move\+\_\+arm action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file move\+\_\+arm.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_move_arm_interface_a711e6a8e313a09fa60642aa6154db968}\label{class_k_c_l__rosplan_1_1_move_arm_interface_a711e6a8e313a09fa60642aa6154db968}} 
+\index{KCL\_rosplan::MoveArmInterface@{KCL\_rosplan::MoveArmInterface}!MoveArmInterface@{MoveArmInterface}}
+\index{MoveArmInterface@{MoveArmInterface}!KCL\_rosplan::MoveArmInterface@{KCL\_rosplan::MoveArmInterface}}
+\doxysubsubsection{\texorpdfstring{MoveArmInterface()}{MoveArmInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Move\+Arm\+Interface\+::\+Move\+Arm\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file move\+\_\+arm.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_move_arm_interface_abe22a23d2aef43425ef3828fa982d6ef}\label{class_k_c_l__rosplan_1_1_move_arm_interface_abe22a23d2aef43425ef3828fa982d6ef}} 
+\index{KCL\_rosplan::MoveArmInterface@{KCL\_rosplan::MoveArmInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::MoveArmInterface@{KCL\_rosplan::MoveArmInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Move\+Arm\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback of the move\+\_\+arm action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action move\+\_\+arm is executed. This action allows the robot its own arm in the high or low pose, implemented with moveit, depending on the z retrived by the parameter server. 
+
+Definition at line 59 of file move\+\_\+arm.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{move__arm_8h}{move\+\_\+arm.\+h}}\item 
+src/\mbox{\hyperlink{move__arm_8cpp}{move\+\_\+arm.\+cpp}}\end{DoxyCompactItemize}

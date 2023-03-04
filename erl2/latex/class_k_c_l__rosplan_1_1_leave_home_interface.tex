@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_leave_home_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Leave\+Home\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_leave_home_interface}\index{KCL\_rosplan::LeaveHomeInterface@{KCL\_rosplan::LeaveHomeInterface}}
+
+
+{\ttfamily \#include $<$leave\+\_\+home.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Leave\+Home\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_k_c_l__rosplan_1_1_leave_home_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Leave\+Home\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_k_c_l__rosplan_1_1_leave_home_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_leave_home_interface_a4a26ad88c69fa30c14e747b357adbab4}{Leave\+Home\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\begin{DoxyCompactList}\small\item\em Callback of the leave\+\_\+home action. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_leave_home_interface_a3fa4cbf53db72621824f9c6fd7cf6713}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file leave\+\_\+home.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_leave_home_interface_a4a26ad88c69fa30c14e747b357adbab4}\label{class_k_c_l__rosplan_1_1_leave_home_interface_a4a26ad88c69fa30c14e747b357adbab4}} 
+\index{KCL\_rosplan::LeaveHomeInterface@{KCL\_rosplan::LeaveHomeInterface}!LeaveHomeInterface@{LeaveHomeInterface}}
+\index{LeaveHomeInterface@{LeaveHomeInterface}!KCL\_rosplan::LeaveHomeInterface@{KCL\_rosplan::LeaveHomeInterface}}
+\doxysubsubsection{\texorpdfstring{LeaveHomeInterface()}{LeaveHomeInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Leave\+Home\+Interface\+::\+Leave\+Home\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Callback of the leave\+\_\+home action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action leave\+\_\+home is executed. This action is performed when the robot is at home and have to move to one of the waypoints, after initialization or after checking a wrong hypothesis 
+
+Definition at line 51 of file leave\+\_\+home.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_leave_home_interface_a3fa4cbf53db72621824f9c6fd7cf6713}\label{class_k_c_l__rosplan_1_1_leave_home_interface_a3fa4cbf53db72621824f9c6fd7cf6713}} 
+\index{KCL\_rosplan::LeaveHomeInterface@{KCL\_rosplan::LeaveHomeInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::LeaveHomeInterface@{KCL\_rosplan::LeaveHomeInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Leave\+Home\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file leave\+\_\+home.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{leave__home_8h}{leave\+\_\+home.\+h}}\item 
+src/\mbox{\hyperlink{leave__home_8cpp}{leave\+\_\+home.\+cpp}}\end{DoxyCompactItemize}

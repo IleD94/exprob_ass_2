@@ -1,0 +1,84 @@
+\hypertarget{class_k_c_l__rosplan_1_1_check_hypothesis_interface}{}\doxysection{K\+C\+L\+\_\+rosplan\+::Check\+Hypothesis\+Interface Class Reference}
+\label{class_k_c_l__rosplan_1_1_check_hypothesis_interface}\index{KCL\_rosplan::CheckHypothesisInterface@{KCL\_rosplan::CheckHypothesisInterface}}
+
+
+{\ttfamily \#include $<$check\+\_\+hypothesis.\+h$>$}
+
+
+
+Inheritance diagram for K\+C\+L\+\_\+rosplan\+::Check\+Hypothesis\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{class_k_c_l__rosplan_1_1_check_hypothesis_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for K\+C\+L\+\_\+rosplan\+::Check\+Hypothesis\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{class_k_c_l__rosplan_1_1_check_hypothesis_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k_c_l__rosplan_1_1_check_hypothesis_interface_a7453756774548926f15778061d1ac560}{Check\+Hypothesis\+Interface}} (ros\+::\+Node\+Handle \&nh)
+\item 
+bool \mbox{\hyperlink{class_k_c_l__rosplan_1_1_check_hypothesis_interface_a12e46489880a112ef17a56dfb48d17cb}{concrete\+Callback}} (const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback of the check\+\_\+complete action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file check\+\_\+hypothesis.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_check_hypothesis_interface_a7453756774548926f15778061d1ac560}\label{class_k_c_l__rosplan_1_1_check_hypothesis_interface_a7453756774548926f15778061d1ac560}} 
+\index{KCL\_rosplan::CheckHypothesisInterface@{KCL\_rosplan::CheckHypothesisInterface}!CheckHypothesisInterface@{CheckHypothesisInterface}}
+\index{CheckHypothesisInterface@{CheckHypothesisInterface}!KCL\_rosplan::CheckHypothesisInterface@{KCL\_rosplan::CheckHypothesisInterface}}
+\doxysubsubsection{\texorpdfstring{CheckHypothesisInterface()}{CheckHypothesisInterface()}}
+{\footnotesize\ttfamily K\+C\+L\+\_\+rosplan\+::\+Check\+Hypothesis\+Interface\+::\+Check\+Hypothesis\+Interface (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file check\+\_\+hypothesis.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_k_c_l__rosplan_1_1_check_hypothesis_interface_a12e46489880a112ef17a56dfb48d17cb}\label{class_k_c_l__rosplan_1_1_check_hypothesis_interface_a12e46489880a112ef17a56dfb48d17cb}} 
+\index{KCL\_rosplan::CheckHypothesisInterface@{KCL\_rosplan::CheckHypothesisInterface}!concreteCallback@{concreteCallback}}
+\index{concreteCallback@{concreteCallback}!KCL\_rosplan::CheckHypothesisInterface@{KCL\_rosplan::CheckHypothesisInterface}}
+\doxysubsubsection{\texorpdfstring{concreteCallback()}{concreteCallback()}}
+{\footnotesize\ttfamily bool K\+C\+L\+\_\+rosplan\+::\+Check\+Hypothesis\+Interface\+::concrete\+Callback (\begin{DoxyParamCaption}\item[{const rosplan\+\_\+dispatch\+\_\+msgs\+::\+Action\+Dispatch\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback of the check\+\_\+complete action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message from the plan\+\_\+dispatcher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true
+\end{DoxyReturn}
+This function implements the beahvior of the robot when the action check\+\_\+hypothesis is executed. This action is performed at every waypoint after the move\+\_\+arm action. To know if there are new complete hypothesis a client to the complete service is implemented. If the information given by the client is true then the plan can go on and can proceed with the check of the consistency, if insted the information given by the client is false, then a replanning is needed, and the robot will continue to explore the waypoints while collecting new hints. 
+
+Definition at line 60 of file check\+\_\+hypothesis.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/erl2/\mbox{\hyperlink{check__hypothesis_8h}{check\+\_\+hypothesis.\+h}}\item 
+src/\mbox{\hyperlink{check__hypothesis_8cpp}{check\+\_\+hypothesis.\+cpp}}\end{DoxyCompactItemize}

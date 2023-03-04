@@ -1,0 +1,310 @@
+\hypertarget{initialization_8cpp}{}\doxysection{src/initialization.cpp File Reference}
+\label{initialization_8cpp}\index{src/initialization.cpp@{src/initialization.cpp}}
+
+
+this node implements the initialization action.  
+
+
+{\ttfamily \#include \char`\"{}erl2/initialization.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/move\+\_\+group\+\_\+interface/move\+\_\+group\+\_\+interface.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$erl2/\+Planning\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$erl2/\+Erl\+Oracle.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for initialization.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{initialization_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceerl2}{erl2}}
+\item 
+ \mbox{\hyperlink{namespace_k_c_l__rosplan}{K\+C\+L\+\_\+rosplan}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{initialization_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+14159
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{initialization_8cpp_a02643b059212847756752b77b81f8604}{hint\+\_\+callback}} (const erl2\+::\+Erl\+Oracle\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback function of the subscriber to the /oracle\+\_\+hint topic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialization_8cpp_ac0eda1ee290b35c91ae3e8a4224c3083}{move\+\_\+to}} (double xpos, double ypos, double orientation)
+\begin{DoxyCompactList}\small\item\em Function to make the robot move in the enviornment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialization_8cpp_a011a8cd01ca82cdfab5894fc2c04d1e9}{look\+\_\+around}} (double xpos, double ypos, double orientation, std\+::string wp, moveit\+::planning\+\_\+interface\+::\+Move\+Group\+Interface \&group)
+\begin{DoxyCompactList}\small\item\em Function to make the robot move in the enviornment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{initialization_8cpp_ada5a3bd00aa0de489085f99334d22d68}{high\+\_\+pose}} ()
+\item 
+int \mbox{\hyperlink{initialization_8cpp_aaab7523dc18170184179915b180cd87a}{low\+\_\+pose}} ()
+\item 
+double \mbox{\hyperlink{initialization_8cpp_ab48962229ba99212a769b7949e51b4ec}{z\+\_\+storage}} (std\+::string wp)
+\begin{DoxyCompactList}\small\item\em Function to make the robot move in the enviornment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{initialization_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function of the initialization action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Subscriber \mbox{\hyperlink{initialization_8cpp_a0b272e217c5e30fa3cbfc54c7cf34cb2}{hint\+\_\+sub}}
+\item 
+bool \mbox{\hyperlink{initialization_8cpp_aac3da0e564927f5457072c4d0d5e52c2}{gotta\+\_\+hint}} = false
+\item 
+double \mbox{\hyperlink{initialization_8cpp_a060c500989c875ae4b498657e0561fd5}{z\+\_\+wp0}} = 0.\+0
+\item 
+double \mbox{\hyperlink{initialization_8cpp_a724b974d6c92b67a14c8cb59c33b0823}{z\+\_\+wp1}} = 0.\+0
+\item 
+double \mbox{\hyperlink{initialization_8cpp_a62bcc88afa8b94fafade157b6a0fe9c7}{z\+\_\+wp2}} = 0.\+0
+\item 
+double \mbox{\hyperlink{initialization_8cpp_a548b0bb699f1b3c307c8ea7057d5068c}{z\+\_\+wp3}} = 0.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this node implements the initialization action. 
+
+\begin{DoxyAuthor}{Author}
+Ilenia D\textquotesingle{}Angelo 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+13/02/2023
+\end{DoxyDate}
+Subscribes to\+: ~\newline
+ /oracle\+\_\+hint
+
+Publishes to\+: ~\newline
+ None
+
+Serivces\+: ~\newline
+ None
+
+Client Services\+: ~\newline
+ None
+
+Action Client\+: ~\newline
+ /reaching\+\_\+goal
+
+Description\+: ~\newline
+ In this node is implemented the first action of the plan when the simulation starts. This node simply perform a complete first tour moving the arm both in the high position and then in the low position. This is done only to know the z position of the sphere in the environment, in a way that, in the following rounds the robot already knows the position of those spheres and positions directly in the right position. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{initialization_8cpp_a598a3330b3c21701223ee0ca14316eca}\label{initialization_8cpp_a598a3330b3c21701223ee0ca14316eca}} 
+\index{initialization.cpp@{initialization.cpp}!PI@{PI}}
+\index{PI@{PI}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \#define PI~3.\+14159}
+
+
+
+Definition at line 44 of file initialization.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{initialization_8cpp_ada5a3bd00aa0de489085f99334d22d68}\label{initialization_8cpp_ada5a3bd00aa0de489085f99334d22d68}} 
+\index{initialization.cpp@{initialization.cpp}!high\_pose@{high\_pose}}
+\index{high\_pose@{high\_pose}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{high\_pose()}{high\_pose()}}
+{\footnotesize\ttfamily int high\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialization_8cpp_a02643b059212847756752b77b81f8604}\label{initialization_8cpp_a02643b059212847756752b77b81f8604}} 
+\index{initialization.cpp@{initialization.cpp}!hint\_callback@{hint\_callback}}
+\index{hint\_callback@{hint\_callback}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{hint\_callback()}{hint\_callback()}}
+{\footnotesize\ttfamily void hint\+\_\+callback (\begin{DoxyParamCaption}\item[{const erl2\+::\+Erl\+Oracle\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback function of the subscriber to the /oracle\+\_\+hint topic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message that contains the hint \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+This is the callback function of the subscriber to the /oracle\+\_\+hint topic. In this case the message is not collected but a variable is set to true when a message is recieved. 
+
+Definition at line 60 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_a011a8cd01ca82cdfab5894fc2c04d1e9}\label{initialization_8cpp_a011a8cd01ca82cdfab5894fc2c04d1e9}} 
+\index{initialization.cpp@{initialization.cpp}!look\_around@{look\_around}}
+\index{look\_around@{look\_around}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{look\_around()}{look\_around()}}
+{\footnotesize\ttfamily void look\+\_\+around (\begin{DoxyParamCaption}\item[{double}]{xpos,  }\item[{double}]{ypos,  }\item[{double}]{orientation,  }\item[{std\+::string}]{wp,  }\item[{moveit\+::planning\+\_\+interface\+::\+Move\+Group\+Interface \&}]{group }\end{DoxyParamCaption})}
+
+
+
+Function to make the robot move in the enviornment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xpos} & x position of the waypoint \\
+\hline
+{\em ypos} & y position of the waypoint \\
+\hline
+{\em orientation} & orientation of the waypoint \\
+\hline
+{\em wp} & string with the name of the waypoint \\
+\hline
+{\em group} & pointer to te group (\char`\"{}arm\char`\"{}) definend in move it service \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+This function perform the exploration of the environment and call the function to storage the z postion 
+
+Definition at line 239 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_aaab7523dc18170184179915b180cd87a}\label{initialization_8cpp_aaab7523dc18170184179915b180cd87a}} 
+\index{initialization.cpp@{initialization.cpp}!low\_pose@{low\_pose}}
+\index{low\_pose@{low\_pose}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{low\_pose()}{low\_pose()}}
+{\footnotesize\ttfamily int low\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialization_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{initialization_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{initialization.cpp@{initialization.cpp}!main@{main}}
+\index{main@{main}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main function of the initialization action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0
+\end{DoxyReturn}
+This is the main function of the initilization\+\_\+action, where the node is initialized and the subscriber of the oracle\+\_\+hint is implemented. The Initialization\+Interface executes the real action as an action of the rosplan. 
+
+Definition at line 160 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_ac0eda1ee290b35c91ae3e8a4224c3083}\label{initialization_8cpp_ac0eda1ee290b35c91ae3e8a4224c3083}} 
+\index{initialization.cpp@{initialization.cpp}!move\_to@{move\_to}}
+\index{move\_to@{move\_to}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{move\_to()}{move\_to()}}
+{\footnotesize\ttfamily void move\+\_\+to (\begin{DoxyParamCaption}\item[{double}]{xpos,  }\item[{double}]{ypos,  }\item[{double}]{orientation }\end{DoxyParamCaption})}
+
+
+
+Function to make the robot move in the enviornment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xpos} & x position in the environment \\
+\hline
+{\em ypos} & y position in the environment \\
+\hline
+{\em orientation} & desired orientation in the environment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+This function implement an action client in order to make the robot move within the environment that allows also to stop immediatly the behavior of the robot when this node is stopped. 
+
+Definition at line 191 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_ab48962229ba99212a769b7949e51b4ec}\label{initialization_8cpp_ab48962229ba99212a769b7949e51b4ec}} 
+\index{initialization.cpp@{initialization.cpp}!z\_storage@{z\_storage}}
+\index{z\_storage@{z\_storage}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_storage()}{z\_storage()}}
+{\footnotesize\ttfamily double z\+\_\+storage (\begin{DoxyParamCaption}\item[{std\+::string}]{wp }\end{DoxyParamCaption})}
+
+
+
+Function to make the robot move in the enviornment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wp} & string with the name of the waypoint \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\+: the z position of the waypoint
+\end{DoxyReturn}
+This function storage the z position of the hint of a specific waypoint 
+
+Definition at line 211 of file initialization.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{initialization_8cpp_aac3da0e564927f5457072c4d0d5e52c2}\label{initialization_8cpp_aac3da0e564927f5457072c4d0d5e52c2}} 
+\index{initialization.cpp@{initialization.cpp}!gotta\_hint@{gotta\_hint}}
+\index{gotta\_hint@{gotta\_hint}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{gotta\_hint}{gotta\_hint}}
+{\footnotesize\ttfamily bool gotta\+\_\+hint = false}
+
+
+
+Definition at line 50 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_a0b272e217c5e30fa3cbfc54c7cf34cb2}\label{initialization_8cpp_a0b272e217c5e30fa3cbfc54c7cf34cb2}} 
+\index{initialization.cpp@{initialization.cpp}!hint\_sub@{hint\_sub}}
+\index{hint\_sub@{hint\_sub}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{hint\_sub}{hint\_sub}}
+{\footnotesize\ttfamily ros\+::\+Subscriber hint\+\_\+sub}
+
+
+
+Definition at line 47 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_a060c500989c875ae4b498657e0561fd5}\label{initialization_8cpp_a060c500989c875ae4b498657e0561fd5}} 
+\index{initialization.cpp@{initialization.cpp}!z\_wp0@{z\_wp0}}
+\index{z\_wp0@{z\_wp0}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp0}{z\_wp0}}
+{\footnotesize\ttfamily double z\+\_\+wp0 = 0.\+0}
+
+
+
+Definition at line 80 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_a724b974d6c92b67a14c8cb59c33b0823}\label{initialization_8cpp_a724b974d6c92b67a14c8cb59c33b0823}} 
+\index{initialization.cpp@{initialization.cpp}!z\_wp1@{z\_wp1}}
+\index{z\_wp1@{z\_wp1}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp1}{z\_wp1}}
+{\footnotesize\ttfamily double z\+\_\+wp1 = 0.\+0}
+
+
+
+Definition at line 81 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_a62bcc88afa8b94fafade157b6a0fe9c7}\label{initialization_8cpp_a62bcc88afa8b94fafade157b6a0fe9c7}} 
+\index{initialization.cpp@{initialization.cpp}!z\_wp2@{z\_wp2}}
+\index{z\_wp2@{z\_wp2}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp2}{z\_wp2}}
+{\footnotesize\ttfamily double z\+\_\+wp2 = 0.\+0}
+
+
+
+Definition at line 82 of file initialization.\+cpp.
+
+\mbox{\Hypertarget{initialization_8cpp_a548b0bb699f1b3c307c8ea7057d5068c}\label{initialization_8cpp_a548b0bb699f1b3c307c8ea7057d5068c}} 
+\index{initialization.cpp@{initialization.cpp}!z\_wp3@{z\_wp3}}
+\index{z\_wp3@{z\_wp3}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{z\_wp3}{z\_wp3}}
+{\footnotesize\ttfamily double z\+\_\+wp3 = 0.\+0}
+
+
+
+Definition at line 83 of file initialization.\+cpp.
+
