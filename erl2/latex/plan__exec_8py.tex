@@ -1,0 +1,59 @@
+\hypertarget{plan__exec_8py}{}\doxysection{scripts/plan\+\_\+exec.py File Reference}
+\label{plan__exec_8py}\index{scripts/plan\_exec.py@{scripts/plan\_exec.py}}
+
+
+script that menages the execution of the rosplan.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceplan__exec}{plan\+\_\+exec}}
+\item 
+ \mbox{\hyperlink{namespaceerl2}{erl2}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceplan__exec_a623a063277a4a71387ae7c981f9d2d95}{plan\+\_\+exec.\+main}} ()
+\begin{DoxyCompactList}\small\item\em Main function of the node in which the node is initialized and all the rosplan services are called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceplan__exec_a0563c3650f19b62ad44c1368a13b020e}{plan\+\_\+exec.\+upd\+\_\+knowledge}} = None
+\item 
+bool \mbox{\hyperlink{namespaceplan__exec_ae45cd1349744433aec8b5b0c624d9488}{plan\+\_\+exec.\+rosplan\+\_\+success}} = False
+\item 
+bool \mbox{\hyperlink{namespaceplan__exec_af8acaebcf5ef9ad96d6068d7344f9407}{plan\+\_\+exec.\+rosplan\+\_\+goal}} = False
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+script that menages the execution of the rosplan. 
+
+\begin{DoxyAuthor}{Author}
+Ilenia D\textquotesingle{}Angelo 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+23/02/2023
+\end{DoxyDate}
+Subscribes to\+: ~\newline
+ None
+
+Publishes to\+: ~\newline
+ None
+
+Serivces\+: ~\newline
+ None
+
+Client Services\+: ~\newline
+ armor\+\_\+interface\+\_\+srv /rosplan\+\_\+problem\+\_\+interface/problem\+\_\+generation\+\_\+server /rosplan\+\_\+planner\+\_\+interface/planning\+\_\+server /rosplan\+\_\+parsing\+\_\+interface/parse\+\_\+plan /rosplan\+\_\+plan\+\_\+dispatcher/dispatch\+\_\+plan
+
+Action Services\+: ~\newline
+ None
+
+Description\+: ~\newline
+ In this node all rosplan services are called in order to execute the current plan, generated automatically by rosplan services and poptf planner from the domain and the problem files provided. Services are called in loop, for every fail of the previous plan there is an automatic replanning. 

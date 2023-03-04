@@ -1,0 +1,281 @@
+\hypertarget{namespacehints__collection}{}\doxysection{hints\+\_\+collection Namespace Reference}
+\label{namespacehints__collection}\index{hints\_collection@{hints\_collection}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacehints__collection_af1779636c69742bb9dee99326c14417c}{user\+\_\+interface}} (msg)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_a129dd8958dc5c1775bbf359fdf71211a}{make\+\_\+ind\+\_\+of\+\_\+class\+\_\+disjoint}} (class\+\_\+name)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_a81992f74cc39d86967827ae5e449711b}{add\+\_\+hypothesis}} (\mbox{\hyperlink{namespacehints__collection_ab6334b916ef9580db9380967f61cc1dc}{ID}}, item, \mbox{\hyperlink{simulation_8cpp_a0049a8a39c319bf1470f36c9e0f75abd}{key}})
+\item 
+def \mbox{\hyperlink{namespacehints__collection_a961d453063c66d77de011525d29f0710}{hint\+\_\+callback}} (msg)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_a443a334824935ea295073344de3abc91}{ontology\+\_\+query}} (HP)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_ac2bb55aef956d7cbbc37b2bd3f6d8de0}{from\+\_\+url\+\_\+to\+\_\+my\+\_\+item}} (url)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_a93b30bd1995f30342aa5f21ccd2f395f}{accusation\+\_\+maker}} (req)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_a0f487d822d6825495a8d559d2f942bb5}{check\+\_\+hypo}} (req)
+\item 
+def \mbox{\hyperlink{namespacehints__collection_ae7ace9816a7ab2a7fa9fd358195dd6d9}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacehints__collection_abe40830811f36501b62371b92c86f1a5}{acquired}} = False
+\item 
+\mbox{\hyperlink{namespacehints__collection_aa16e423c77b3e376b71c48df125ef287}{client}} = Armor\+Client(\char`\"{}cluedo\char`\"{}, \char`\"{}ontology\char`\"{})
+\item 
+\mbox{\hyperlink{namespacehints__collection_ab6334b916ef9580db9380967f61cc1dc}{ID}} = None
+\item 
+list \mbox{\hyperlink{namespacehints__collection_a3c26042b5cfc279a1a41de31efbf896d}{I\+D\+\_\+list}} = \mbox{[}$\,$\mbox{]}
+\item 
+bool \mbox{\hyperlink{namespacehints__collection_a00a121576ca967713aadce56d225dcab}{check}} = False
+\item 
+bool \mbox{\hyperlink{namespacehints__collection_aaa2436146b5a1b3a2915c07cabc60f12}{go}} = False
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@package cluedo, hints_collection.
+This node, 'hints_collection', collects and checks all the hints received.
+\end{DoxyVerb}
+ ~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacehints__collection_a93b30bd1995f30342aa5f21ccd2f395f}\label{namespacehints__collection_a93b30bd1995f30342aa5f21ccd2f395f}} 
+\index{hints\_collection@{hints\_collection}!accusation\_maker@{accusation\_maker}}
+\index{accusation\_maker@{accusation\_maker}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{accusation\_maker()}{accusation\_maker()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+accusation\+\_\+maker (\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this is the function of the service 'accusation', of type MyHypo. In order to take
+the hint, in the form of: who, where, what, of the hypothesis that we want to check to the 
+oracle.
+@param: req, type none 
+@return: res, type: ID (int32), who (string), what, (string), where (string)
+
+This function call the function make_ind_of_class_disjoint, to make every individual of classes
+PERSON, WEAPON, PLACE disjointed. Then it calls the armor api, query.objectprop_b2_ind, to
+get who, what and where of a specific hypothes and it calls the function from_url_to_my_item
+to get from the armor_service only the individual of the class.
+\end{DoxyVerb}
+ 
+
+Definition at line 162 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a81992f74cc39d86967827ae5e449711b}\label{namespacehints__collection_a81992f74cc39d86967827ae5e449711b}} 
+\index{hints\_collection@{hints\_collection}!add\_hypothesis@{add\_hypothesis}}
+\index{add\_hypothesis@{add\_hypothesis}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{add\_hypothesis()}{add\_hypothesis()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+add\+\_\+hypothesis (\begin{DoxyParamCaption}\item[{}]{ID,  }\item[{}]{item,  }\item[{}]{key }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this function add items in the class HYPOTHESIS in the cluedo ontology
+and add an individual to the object property who, where and what, depending on 
+the kind of hint that it has received from the hint_generator. At the end it
+saves the changes and synchronize the reasoner using armor api.
+@param ID: uint32 with the number of the source
+@param item: the hint to add in the cluedo ontology as where, who or what instance 
+\end{DoxyVerb}
+ 
+
+Definition at line 78 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a0f487d822d6825495a8d559d2f942bb5}\label{namespacehints__collection_a0f487d822d6825495a8d559d2f942bb5}} 
+\index{hints\_collection@{hints\_collection}!check\_hypo@{check\_hypo}}
+\index{check\_hypo@{check\_hypo}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{check\_hypo()}{check\_hypo()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+check\+\_\+hypo (\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this is the function of the service "check_hypotesis", of type Consistency. In order to
+check consistency and completeness.
+@param: req, type none 
+@return: res, type: success (Bool) 
+
+Here the boolean of return is stored in the check global variable.
+\end{DoxyVerb}
+ 
+
+Definition at line 192 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_ac2bb55aef956d7cbbc37b2bd3f6d8de0}\label{namespacehints__collection_ac2bb55aef956d7cbbc37b2bd3f6d8de0}} 
+\index{hints\_collection@{hints\_collection}!from\_url\_to\_my\_item@{from\_url\_to\_my\_item}}
+\index{from\_url\_to\_my\_item@{from\_url\_to\_my\_item}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{from\_url\_to\_my\_item()}{from\_url\_to\_my\_item()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+from\+\_\+url\+\_\+to\+\_\+my\+\_\+item (\begin{DoxyParamCaption}\item[{}]{url }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this a function to transform the result of the armor service, that is a url,
+to a string, with only the individual of the class. 
+@param: url, the url from the ontology
+@return: my_item, the individual from the ontology as string
+
+This function replace url, parenthesis and major symbol with empty space, In rder to have
+as a string only the individual of the class.
+\end{DoxyVerb}
+ 
+
+Definition at line 145 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a961d453063c66d77de011525d29f0710}\label{namespacehints__collection_a961d453063c66d77de011525d29f0710}} 
+\index{hints\_collection@{hints\_collection}!hint\_callback@{hint\_callback}}
+\index{hint\_callback@{hint\_callback}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{hint\_callback()}{hint\_callback()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+hint\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this is the callback of the subscriber to the /oracle_hint topic. The message is a
+custom message ErlOracle. 
+@param: msg
+@return: None
+
+This is a callback of the suscriber hint_sub. Here we collect and store as global variable
+the hint, in the form of id, key and value. Here we put as true also the flag acquired, that
+is used to know if the hint has been acquired.
+\end{DoxyVerb}
+ 
+
+Definition at line 98 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_ae7ace9816a7ab2a7fa9fd358195dd6d9}\label{namespacehints__collection_ae7ace9816a7ab2a7fa9fd358195dd6d9}} 
+\index{hints\_collection@{hints\_collection}!main@{main}}
+\index{main@{main}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this is the main function. Here we declare every service and subscriber used and it checks
+if the hint is malformed, so it needs to be discarded or if it can be collected. Once collected the hint
+it controlled if the hypothesis is consistent, using the proper functions. Here is used a user_interface to
+show on the screen the result of the quest.
+
+@param: None
+@return: None    
+\end{DoxyVerb}
+ 
+
+Definition at line 207 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a129dd8958dc5c1775bbf359fdf71211a}\label{namespacehints__collection_a129dd8958dc5c1775bbf359fdf71211a}} 
+\index{hints\_collection@{hints\_collection}!make\_ind\_of\_class\_disjoint@{make\_ind\_of\_class\_disjoint}}
+\index{make\_ind\_of\_class\_disjoint@{make\_ind\_of\_class\_disjoint}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{make\_ind\_of\_class\_disjoint()}{make\_ind\_of\_class\_disjoint()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+make\+\_\+ind\+\_\+of\+\_\+class\+\_\+disjoint (\begin{DoxyParamCaption}\item[{}]{class\+\_\+name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief Disjoint all individuals of a class in an ontology by comunication with the armor server.
+
+Args:
+    ind_name (str): individual to be disjointed to the class.
+    class_name (str): individual will be disjointed to this class. It will be created a new class if it does not exist.
+
+Returns:
+    bool: True if ontology is consistent, else False
+
+Raises:
+    armor_api.exceptions.ArmorServiceCallError: if call to ARMOR fails
+    armor_api.exceptions.ArmorServiceInternalError: if ARMOR reports an internal error
+
+Note:
+    It returns the boolean consistency state of the ontology. This value is not updated to the last operation
+    if you are working in buffered reasoner or manipulation mode!
+\end{DoxyVerb}
+ 
+
+Definition at line 42 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a443a334824935ea295073344de3abc91}\label{namespacehints__collection_a443a334824935ea295073344de3abc91}} 
+\index{hints\_collection@{hints\_collection}!ontology\_query@{ontology\_query}}
+\index{ontology\_query@{ontology\_query}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{ontology\_query()}{ontology\_query()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+ontology\+\_\+query (\begin{DoxyParamCaption}\item[{}]{HP }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this is the function to check, asking to the armor service, if the hypothesis is 
+consistent, inconsistent or incomplete.
+@param: HP
+@return: bool
+
+This function asks to armor service about the consistency of every hypothesis and 
+sends to the user interface the result of the query as a string, then it returns a 
+boolean value, true if it is consistent, false in every other case.
+\end{DoxyVerb}
+ 
+
+Definition at line 115 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_af1779636c69742bb9dee99326c14417c}\label{namespacehints__collection_af1779636c69742bb9dee99326c14417c}} 
+\index{hints\_collection@{hints\_collection}!user\_interface@{user\_interface}}
+\index{user\_interface@{user\_interface}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{user\_interface()}{user\_interface()}}
+{\footnotesize\ttfamily def hints\+\_\+collection.\+user\+\_\+interface (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}/brief this function calls the publisher of the topic 'cluedo_ui', of type String and publishes it.
+@param msg: String
+@return None
+\end{DoxyVerb}
+ 
+
+Definition at line 28 of file hints\+\_\+collection.\+py.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacehints__collection_abe40830811f36501b62371b92c86f1a5}\label{namespacehints__collection_abe40830811f36501b62371b92c86f1a5}} 
+\index{hints\_collection@{hints\_collection}!acquired@{acquired}}
+\index{acquired@{acquired}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{acquired}{acquired}}
+{\footnotesize\ttfamily bool hints\+\_\+collection.\+acquired = False}
+
+
+
+Definition at line 19 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a00a121576ca967713aadce56d225dcab}\label{namespacehints__collection_a00a121576ca967713aadce56d225dcab}} 
+\index{hints\_collection@{hints\_collection}!check@{check}}
+\index{check@{check}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{check}{check}}
+{\footnotesize\ttfamily bool hints\+\_\+collection.\+check = False}
+
+
+
+Definition at line 24 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_aa16e423c77b3e376b71c48df125ef287}\label{namespacehints__collection_aa16e423c77b3e376b71c48df125ef287}} 
+\index{hints\_collection@{hints\_collection}!client@{client}}
+\index{client@{client}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily hints\+\_\+collection.\+client = Armor\+Client(\char`\"{}cluedo\char`\"{}, \char`\"{}ontology\char`\"{})}
+
+
+
+Definition at line 21 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_aaa2436146b5a1b3a2915c07cabc60f12}\label{namespacehints__collection_aaa2436146b5a1b3a2915c07cabc60f12}} 
+\index{hints\_collection@{hints\_collection}!go@{go}}
+\index{go@{go}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{go}{go}}
+{\footnotesize\ttfamily bool hints\+\_\+collection.\+go = False}
+
+
+
+Definition at line 25 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_ab6334b916ef9580db9380967f61cc1dc}\label{namespacehints__collection_ab6334b916ef9580db9380967f61cc1dc}} 
+\index{hints\_collection@{hints\_collection}!ID@{ID}}
+\index{ID@{ID}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily hints\+\_\+collection.\+ID = None}
+
+
+
+Definition at line 22 of file hints\+\_\+collection.\+py.
+
+\mbox{\Hypertarget{namespacehints__collection_a3c26042b5cfc279a1a41de31efbf896d}\label{namespacehints__collection_a3c26042b5cfc279a1a41de31efbf896d}} 
+\index{hints\_collection@{hints\_collection}!ID\_list@{ID\_list}}
+\index{ID\_list@{ID\_list}!hints\_collection@{hints\_collection}}
+\doxysubsubsection{\texorpdfstring{ID\_list}{ID\_list}}
+{\footnotesize\ttfamily list hints\+\_\+collection.\+I\+D\+\_\+list = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line 23 of file hints\+\_\+collection.\+py.
+

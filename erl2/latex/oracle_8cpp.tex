@@ -1,0 +1,117 @@
+\hypertarget{oracle_8cpp}{}\doxysection{src/oracle.cpp File Reference}
+\label{oracle_8cpp}\index{src/oracle.cpp@{src/oracle.cpp}}
+
+
+this node implements the oracle action.  
+
+
+{\ttfamily \#include \char`\"{}erl2/oracle.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$erl2/\+My\+Hypo.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+Int32.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+String.\+h$>$}\newline
+Include dependency graph for oracle.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{oracle_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceerl2}{erl2}}
+\item 
+ \mbox{\hyperlink{namespace_k_c_l__rosplan}{K\+C\+L\+\_\+rosplan}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{oracle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function of the oracle action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{oracle_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}}
+\item 
+std\+\_\+msgs\+::\+String \mbox{\hyperlink{oracle_8cpp_aa762e9d176e80972e06df68f0c333ca9}{mymsg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this node implements the oracle action. 
+
+\begin{DoxyAuthor}{Author}
+Ilenia D\textquotesingle{}Angelo 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19/02/23
+\end{DoxyDate}
+Subscribes to\+: ~\newline
+ None
+
+Publishes to\+: ~\newline
+ None
+
+Serivces\+: ~\newline
+ None
+
+Client Services\+: ~\newline
+ /oracle\+\_\+solution /accusation
+
+Action Client\+: ~\newline
+ None
+
+Description\+: ~\newline
+ In this node is implemented the oracle action of the rosplan. This node allows to know if the current complete and consistent hypothesis is the winning one or not. Here we compare the value of the ID in the /oracle\+\_\+solution service e in the /accusation service. If it is the winning one, we print the killer, the weapon and the place on the dislay. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{oracle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{oracle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{oracle.cpp@{oracle.cpp}!main@{main}}
+\index{main@{main}!oracle.cpp@{oracle.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main function of the oracle action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0
+\end{DoxyReturn}
+This is the main function of the oracle action, where the node is initialized. Moreover there is the Oracle\+Interface to execute the real action as an action of the rosplan. 
+
+Definition at line 123 of file oracle.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{oracle_8cpp_aa762e9d176e80972e06df68f0c333ca9}\label{oracle_8cpp_aa762e9d176e80972e06df68f0c333ca9}} 
+\index{oracle.cpp@{oracle.cpp}!mymsg@{mymsg}}
+\index{mymsg@{mymsg}!oracle.cpp@{oracle.cpp}}
+\doxysubsubsection{\texorpdfstring{mymsg}{mymsg}}
+{\footnotesize\ttfamily std\+\_\+msgs\+::\+String mymsg}
+
+
+
+Definition at line 43 of file oracle.\+cpp.
+
+\mbox{\Hypertarget{oracle_8cpp_a350594df3e8f6948c8462edfd41ce086}\label{oracle_8cpp_a350594df3e8f6948c8462edfd41ce086}} 
+\index{oracle.cpp@{oracle.cpp}!pub@{pub}}
+\index{pub@{pub}!oracle.cpp@{oracle.cpp}}
+\doxysubsubsection{\texorpdfstring{pub}{pub}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub}
+
+
+
+Definition at line 42 of file oracle.\+cpp.
+
