@@ -65,31 +65,31 @@ All the information concerning the game that can be useful for the player are sh
 
 ## How to install and run:
 To install the package please copy it with this command:
-'''
+```
 git clone https://github.com/IleD94/exprob_ass_2
-'''
+```
 Then move the repository cluedo_moveit to another directory and build it with:
-'''
+```
 catkin_make
-'''
+```
 And after that build also the erl2 package, with the command:
-'''
+```
 catkin_make --only-pkg-with-deps erl2
-'''
+```
 To run the code you have to launch this files in the order below, to avoid any conflict with armor package:
 
-'''
+```
 roslaunch erl2 my_scripts.launch
-'''
-'''
+```
+```
 roslaunch erl2 myass_gaz.launch 1>/dev/null 2>/dev/nul
-'''
-'''
+```
+```
 roslaunch erl2 rosplan_launch.launch 
-'''
-'''
+```
+```
 rosrun erl2 plan_exec.py 
-'''
+```
 
 ## Video
 
