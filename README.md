@@ -102,6 +102,12 @@ rosrun erl2 plan_exec.py
 https://user-images.githubusercontent.com/80365922/222978053-acfe352c-84e3-49fa-a0be-3a4d62efe382.mp4
 
 
+## System's limitations
+A possible limitation in the system is in the managing of nodes by rosplan. We had to set several seconds of sleep in order to synchronize every node with the next one. This can generate a very long game, passing from a node to another.
+
+## Possible improvements
+To improve the system we could find a different mechanism to syncronize nodes of the systems or to set a value of sleep smaller than the one that we set and make all the game faster.
+
 ## Contacts
 Author: Ilenia D'Angelo,
 
