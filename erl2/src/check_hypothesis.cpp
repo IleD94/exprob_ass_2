@@ -28,7 +28,7 @@
 * In this node is implemented the check_hypothesis action of the rosplan.
 * This node allows to know if a new hypothesis has been found, and this is perfomed
 * thanks to the check hypothesis message that advertise this node. If a new consistent hypothesis has
-* been found, then the plan can proceed, if instead there is no new complete hypothesis then
+* been found, then the plan can proceed, if instead there is no new consistent hypothesis then
 * the action return false and a replanning is needed. 
 */
 #include "ros/ros.h"
@@ -51,7 +51,7 @@ namespace KCL_rosplan {
 * \return true
 *
 * This function implements the beahvior of the robot when the action check_hypothesis is executed. This action 
-* is performed at every waypoint after the move_arm action. To know if there are new complete hypothesis a 
+* is performed at every waypoint after the move_arm action. To know if there are new consistent hypothesis a 
 * client to the complete service is implemented. If the information given by the client is true then the plan
 * can go on and can proceed with the check of the consistency, if insted the information given by the client
 * is false, then a replanning is needed, and the robot will continue to explore the waypoints while collecting
