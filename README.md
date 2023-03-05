@@ -1,4 +1,7 @@
 # exprob_ass_2
+
+![image](https://user-images.githubusercontent.com/80365922/222982507-184efdb8-f62e-4c11-ac0b-9362c5fccda9.png)
+
 ## Introduction
 This project is the second part out of three of the implementation of Cluedo Game in simulated environment. In this part we have implemented the architecture of the game and the real movement of the player, a robot Detective, on gazebo simuator. The architecture is divided in three main part: perception, not fully implemented in this part (to have a full implementation on this part, please go to the [third repository of this project](https://github.com/IleD94/exprob_ass_3)), action, fully implemented and planning, implemented using RosPlan service.
 The rules of the game are simple. There was a omicide, Mr. Black was killed by someone, somewhere with some weapon. There is a detective, Detective Bot, that goes around (in gazebo envoronment) to find hints to solve the case. Hints can be found in 4 different waypoints, at two different height (1.25 or 0.75, generated randomly for every new game)
