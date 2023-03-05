@@ -98,6 +98,6 @@ https://user-images.githubusercontent.com/80365922/222978053-acfe352c-84e3-49fa-
 
 
 ## Contacts
-Autor: Ilenia D'Angelo,
+Author: Ilenia D'Angelo,
 
 email: ileniadangelo94@gmail.com
